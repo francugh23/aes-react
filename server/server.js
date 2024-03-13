@@ -20,9 +20,9 @@ app.post('/login', (req, res) => {
   db.query(sql, [req.body.username, req.body.password], (err, data) => {
     if(err) return res.json('Error');
     if(data.length > 0) {
-      return res.json('Success')
+      return res.json('Success');
     } else {
-      return res.json('No Record')
+      return res.json('Failed');
     }
   })
 })

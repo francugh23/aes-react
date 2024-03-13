@@ -3,8 +3,9 @@ import Logo from "../assets/school-logo.png";
 import FloatingInput from "../components/Generic/FloatingInput";
 import Button from "../components/Generic/BSButton";
 import { useEffect, useState } from "react";
-import { Link, RouterProvider } from 'react-router-dom';
+import { Link, RouterProvider, Navigate } from "react-router-dom";
 import Axios from "axios";
+import md5 from "md5";
 
 
 const Login = () => {
@@ -14,19 +15,19 @@ const Login = () => {
     fontSize: '50px'
   };
 
-  // For Auth
+  // For Auth API
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const login = () => {
     Axios.post("http://localhost:8081/login", {
       username: username,
-      password: password,
+      password: md5(password),
     }).then((response) => {
       console.log(response);
       if(response.data == 'Success') {
-        alert('Route to dashboard');
-      } else {
+        location.href = '/dashboard'
+      } else if (response.data == 'Failed') {
         alert('Invalid Username / Password');
       }
     })
@@ -37,7 +38,7 @@ const Login = () => {
       <div className="bg-dark container-fluid" id="login-container">
         <div className="row">
           <div className="col-4 bg-light">
-            <form className="d-flex flex-column justify-content-center align-items-center h-100">
+            <form onSubmit={login} className="d-flex flex-column justify-content-center align-items-center h-100">
               <img src={Logo} alt="school-logo" width={width}  className="mb-5"/>
               <FloatingInput type='text' idName='username' placeholder='ID' onChange={
                 (e) => {
@@ -49,7 +50,7 @@ const Login = () => {
                   setPassword(e.target.value);
                 }
               } />
-              <Button type='submit' value='Login' class='btn btn-lg btn-success w-75' onClick={login}/>
+              <Button type='submit' value='Login' class='btn btn-lg btn-success w-75' />
             </form>
           </div>
           <div className="col p-0 position-relative">

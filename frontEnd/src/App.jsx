@@ -3,7 +3,6 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import './index.css'
-import Home from './Home';
 
 const router = createBrowserRouter([
   {
@@ -13,10 +12,6 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
-  },
-  {
-    path: '/home',
-    element: <Home />,
   },
 ]);
 

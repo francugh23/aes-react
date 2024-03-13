@@ -1,9 +1,19 @@
-import Topbar from "../components/Topbar/Topbar";
+import Topbar from "../components/Topbar";
+import Sidebar from "../components/Sidebar";
 const Dashboard = () => {
   return (
     <>
-      <Topbar />
-      <h1>Dashboard</h1>
+      <div className="row-col">
+        <Topbar />
+      </div>
+      <div className="row">
+        <div className="col-2 bg-dark">
+          <Sidebar />
+        </div>
+        <div className="col">
+
+        </div>
+      </div>
     </>
   );
 }

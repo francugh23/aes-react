@@ -1,6 +1,6 @@
 const BSButton = (props) => {
   return (
-    <button type={props.type} className={props.class} onClick={props.onClick} >{props.value}</button>
+    <input type={props.type} className={props.class} onClick={props.onClick} value={props.value} />
   )
 }
 
