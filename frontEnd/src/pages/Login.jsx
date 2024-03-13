@@ -1,6 +1,6 @@
 const Login = () => {
  return (
-  <div className="bg-[('url('./assets/login-bg')')]">
+  <div className="container">
     <h1>Login</h1>  
   </div>
  )
