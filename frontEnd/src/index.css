@@ -3,5 +3,12 @@
 @tailwind utilities;
 
 * {
+  font-size: 14px;
   font-family: 'Poppins', sans-serif;
+}
+
+#login-container, #login-container .row {
+  background-image: url('./assets/login-bg.jpg');
+  background-size: cover;
+  min-height: 100vh;
 }
