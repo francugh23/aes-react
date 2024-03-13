@@ -2,7 +2,7 @@ import logo from '../assets/school-logo.png'
 const Topbar = () => {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-light p-2 border-bottom">
+      <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom">
         <div className="container-fluid px-5">
           <a className="navbar-brand" href="#">
             <img src={logo} alt="" width={40}/>
