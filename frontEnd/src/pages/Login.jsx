@@ -1,5 +1,7 @@
 import "../index.css";
 import Logo from "../assets/school-logo.png";
+import FloatingInput from "../components/Generic/FloatingInput";
+import SubmitButton from "../components/Generic/BSButton";
 const Login = () => {
   const width = 250;
 
@@ -8,29 +10,12 @@ const Login = () => {
       <div className="bg-dark container-fluid" id="login-container">
         <div className="row">
           <div className="col-4 bg-light">
-            <div className="d-flex flex-column justify-content-center align-items-center">
-              <img src={Logo} alt="school-logo" width={width} />
-
-              <div class="form-floating mb-3 shadow-sm w-75">
-                <input
-                  type="text"
-                  class="form-control form-control-sm"
-                  id="floatingInput"
-                  placeholder="00-00000"
-                />
-                <label for="floatingInput">ID</label>
-              </div>
-
-              <div class="form-floating mb-3 shadow-sm w-75">
-                <input
-                  type="password"
-                  class="form-control form-control-sm"
-                  id="floatingInput"
-                  placeholder="*******"
-                />
-                <label for="floatingInput">Password</label>
-              </div>
-            </div>
+            <form action="" method="post"  className="d-flex flex-column justify-content-center align-items-center h-100">
+              <img src={Logo} alt="school-logo" width={width}  className="mb-5"/>
+              <FloatingInput type='text' idName='userID' placeholder='ID' />
+              <FloatingInput type='password' idName='userPass' placeholder='Password' />
+              <SubmitButton type='submit' value='Login' class='btn btn-lg btn-success w-75' />
+            </form>
           </div>
           <div className="col bg-success opacity-75"></div>
         </div>
