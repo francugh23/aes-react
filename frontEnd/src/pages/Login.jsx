@@ -1,8 +1,11 @@
+import '../index.css'
 const Login = () => {
  return (
-  <div className="container">
-    <h1>Login</h1>  
-  </div>
+  <>
+    <div className='bg-dark'>
+      <h1>Login</h1>
+    </div>
+  </>
  )
 }
 
