@@ -1,15 +1,16 @@
 
 const FloatingInput = (props) => {
   return (
-    <div class="form-floating mb-3 shadow-sm w-75">
+    <div className="form-floating mb-3 shadow-sm w-75">
       <input
         type={props.type}
-        class="form-control form-control-sm"
+        className="form-control form-control-sm"
         id={props.idName}
         name={props.idName}
         placeholder={props.placeholder}
+        onChange={props.onChange}
       />
-      <label for="floatingInput">{props.placeholder}</label>
+      <label htmlFor="floatingInput">{props.placeholder}</label>
     </div>
   )
 }
