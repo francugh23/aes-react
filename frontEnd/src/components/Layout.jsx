@@ -1,8 +1,8 @@
-import Content from "../components/Dashboard/Content"
-import Sidebar from "../components/Sidebar"
-import Topbar from "../components/Topbar"
+import Content from "./Dashboard/Content"
+import Sidebar from "./Sidebar"
+import Topbar from "./Topbar"
 
-const Dashboard = () => {
+const Layout = () => {
   const height = {
     minHeight: '100vh'
   }
@@ -27,4 +27,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default Layout

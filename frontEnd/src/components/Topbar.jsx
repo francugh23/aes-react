@@ -1,7 +1,8 @@
 import logo from '../assets/school-logo.png'
 const Topbar = () => {
+
   return (
-    <>
+    <div className="position-relative w-100 h-100">
       <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom">
         <div className="container-fluid px-5">
           <a className="navbar-brand" href="#">
@@ -14,7 +15,7 @@ const Topbar = () => {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   )
 }
 
