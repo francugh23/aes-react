@@ -5,11 +5,11 @@ const EnrollmentBtn = () => {
         <span className="me-3"><i className="fas fa-caret-right"></i></span>Enrollment Form
       </a>
       <div className="collapse" id="collapseExample">
-        <div className="d-flex flex-column">
-          <a className="btn btn-white border-0 text-center">
+        <div className="d-flex flex-column ps-5">
+          <a className="btn btn-white border-0 text-start">
             Old Student
           </a>
-          <a className="btn btn-white border-0 text-center">
+          <a className="btn btn-white border-0 text-start">
             New Student
           </a>
         </div>
