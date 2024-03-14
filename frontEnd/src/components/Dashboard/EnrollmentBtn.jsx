@@ -6,7 +6,7 @@ const EnrollmentBtn = () => {
       </a>
       <div className="collapse" id="collapseExample">
         <div className="d-flex flex-column ps-5">
-          <a className="btn btn-white border-0 text-start">
+          <a href="/nemesis/enrollment" className="btn btn-white border-0 text-start">
             Old Student
           </a>
           <a className="btn btn-white border-0 text-start">

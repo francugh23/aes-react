@@ -26,7 +26,7 @@ const Login = () => {
     }).then((response) => {
       console.log(response);
       if(response.data == 'Success') {
-        location.href = '/dashboard'
+        location.href = '/nemesis'
       } else if (response.data == 'Failed') {
         alert('Invalid Username / Password');
       }

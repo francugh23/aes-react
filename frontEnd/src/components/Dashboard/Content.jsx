@@ -2,22 +2,8 @@ const Content = (props) => {
 
   return (
     <>
-      <div className="container-fluid" style={{marginTop: '60px', marginLeft: '255px'}}>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
-        <h1>Hello</h1>
+      <div className="container px-5 pt-4" style={{marginTop: '69px', marginLeft: '255px'}}>
+        <h1>Dashboard</h1>
       </div>
     </>
   )

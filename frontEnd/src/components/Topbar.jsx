@@ -1,13 +1,13 @@
 import logo from '../assets/school-logo.png'
-const Topbar = (props) => {
+const Topbar = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom fixed-top" ref={props.topnavRef}>
+      <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom fixed-top">
         <div className="container-fluid px-5">
           <a className="navbar-brand" href="#">
-            <img src={logo} alt="" width={40}/>
-            <span className='h4 mx-3 my-auto'>NEMESIS</span>
+            <img src={logo} alt="" width={50}/>
+            <span className='h4 mx-3 my-auto text-secondary align-middle'>NEMESIS</span>
           </a>
 
           <div>
