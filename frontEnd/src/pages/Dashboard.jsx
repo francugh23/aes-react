@@ -1,7 +1,8 @@
-import Topbar from "../components/Topbar";
-import Sidebar from "../components/Sidebar";
-import Content from "../components/Dashboard/Content";
+import Content from "../components/Dashboard/Content"
+import Sidebar from "../components/Sidebar"
+import Topbar from "../components/Topbar"
 
+<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from "react";
 
 const Dashboard = () => {
@@ -44,6 +45,31 @@ const Dashboard = () => {
       </div>
   </div>
   );
+=======
+const Dashboard = () => {
+  const height = {
+    minHeight: '100vh'
+  }
+  return (
+    <>
+      <div className="container-fluid" style={height}>
+        <div className="row">
+          <div className="col p-0">
+            <Topbar />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-2 p-0">
+            <Sidebar />
+          </div>
+          <div className="col bg-info p-0">
+            <Content />
+          </div>
+        </div>
+      </div>
+    </>
+  )
+>>>>>>> a34300256a11854a8964b4553023c813cff9ad33
 }
 
 export default Dashboard
