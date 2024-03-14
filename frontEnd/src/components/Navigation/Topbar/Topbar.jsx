@@ -1,4 +1,4 @@
-import logo from '../assets/school-logo.png'
+import logo from '../../../assets/school-logo.png'
 const Topbar = () => {
 
   return (

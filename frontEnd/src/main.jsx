@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Login from './pages/Login'
 import './index.css'
-import Enrollment from './pages/Enrollment'
-import Dashboard from './pages/Dashboard'
+
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+
+import Login from './pages/Login'
 import Entry from './pages/Entry'
+import Enrollment from './components/Enrollment'
+import Dashboard from './components/Dashboard'
 
 const router = createBrowserRouter([
   {

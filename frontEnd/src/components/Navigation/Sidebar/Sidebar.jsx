@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import EnrollmentBtn from "./Dashboard/EnrollmentBtn"
 const Sidebar = () => {
 
   return (
@@ -12,7 +11,10 @@ const Sidebar = () => {
           <hr />
           <p className="fw-bold text-secondary">Navigation</p>
           <div className="d-flex flex-column justify-content-center">
-            <EnrollmentBtn />
+            <a href="/nemesis/enrollment" className="btn btn-primary">
+              <span className="me-3"><i class="fas fa-user-plus"></i></span>
+              Enrollment Form
+            </a>
           </div>
         </div>
       </nav>

@@ -1,7 +1,7 @@
 import "../index.css";
 import Logo from "../assets/school-logo.png";
-import FloatingInput from "../components/Generic/FloatingInput";
-import Button from "../components/Generic/BSButton";
+import FloatingInput from "../components/UI/FloatingInput";
+import Button from "../components/UI/BSButton";
 import { useEffect, useState } from "react";
 import { Link, RouterProvider, Navigate } from "react-router-dom";
 import Axios from "axios";
@@ -26,7 +26,7 @@ const Login = () => {
     }).then((response) => {
       console.log(response);
       if(response.data == 'Success') {
-        location.href = '/nemesis'
+        location.href = '/nemesis/dashboard'
       } else if (response.data == 'Failed') {
         alert('Invalid Username / Password');
       }
