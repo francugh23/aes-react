@@ -1,8 +1,10 @@
+import { useEffect } from 'react'
 import logo from '../assets/school-logo.png'
 const Topbar = () => {
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom">
+      <nav className="navbar navbar-expand-lg bg-white p-2 border-bottom position-fixed end-0 start-0 z-3">
         <div className="container-fluid px-5">
           <a className="navbar-brand" href="#">
             <img src={logo} alt="" width={40}/>

@@ -38,7 +38,7 @@ const Login = () => {
       <div className="bg-dark container-fluid" id="login-container">
         <div className="row">
           <div className="col-4 bg-light">
-            <form onSubmit={login} className="d-flex flex-column justify-content-center align-items-center h-100">
+            <div className="d-flex flex-column justify-content-center align-items-center h-100">
               <img src={Logo} alt="school-logo" width={width}  className="mb-5"/>
               <FloatingInput type='text' idName='username' placeholder='ID' onChange={
                 (e) => {
@@ -50,8 +50,8 @@ const Login = () => {
                   setPassword(e.target.value);
                 }
               } />
-              <Button type='submit' value='Login' class='btn btn-lg btn-success w-75' />
-            </form>
+              <Button type='button' value='Login' class='btn btn-lg btn-success w-75' onClick={login} />
+            </div>
           </div>
           <div className="col p-0 position-relative">
             <div className="position-absolute z-3 top-50 start-50 translate-middle">

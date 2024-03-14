@@ -1,8 +1,8 @@
 const Content = () => {
 
   return (
-    <div className="overflow-y-scoll">
-      <div className="container">
+    <>
+      <div className="container-fluid">
         <h1>Hello</h1>
         <h1>Hello</h1>
         <h1>Hello</h1>
@@ -25,7 +25,7 @@ const Content = () => {
         <h1>Hello</h1>
         <h1>Hello</h1>
       </div>
-    </div>
+    </>
   )
 }
 

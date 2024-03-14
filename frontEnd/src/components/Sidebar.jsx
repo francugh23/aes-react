@@ -3,19 +3,20 @@ import EnrollmentBtn from "./Dashboard/EnrollmentBtn"
 const Sidebar = () => {
 
   const style = {
-    textSize: '13px',
-    width: '90%',
+    width: '255px',
   }
 
   return (
     <>
-      <nav className="d-flex flex-column bg-white align-items-center h-100 px-3">
-        <Link rel="stylesheet" to="/dashboard" className="btn btn-success my-3" style={style}>
-          Dashboard
-        </Link>
-        <hr />
-        <div className="d-flex flex-column justify-content-center" style={style}>
-          <EnrollmentBtn />
+      <nav className="bg-white align-items-center h-100 px-3" style={style}>
+        <div className="container">
+          <Link rel="stylesheet" to="/dashboard" className="btn btn-success my-3">
+            Dashboard
+          </Link>
+          <hr />
+          <div className="d-flex flex-column justify-content-center" style={style}>
+            <EnrollmentBtn />
+          </div>
         </div>
       </nav>
     </>
