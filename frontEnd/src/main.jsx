@@ -2,9 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
 import './index.css'
 import Enrollment from './pages/Enrollment'
+import Dashboard from './pages/Dashboard'
+import Entry from './pages/Entry'
 
 const router = createBrowserRouter([
   {
@@ -13,8 +14,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/nemesis",
-    element: <Dashboard />,
+    element: <Entry />,
     children: [
+      {
+        path: "/nemesis/dashboard",
+        element: <Dashboard />
+      },
       {
         path: "/nemesis/enrollment",
         element: <Enrollment />
