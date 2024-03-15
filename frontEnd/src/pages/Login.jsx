@@ -28,7 +28,7 @@ const Login = () => {
         alert('Invalid Username / Password');
       } else {
         // add user session
-        // location.href = '/nemesis/dashboard'
+        location.href = '/nemesis/dashboard'
       }
     })
   }
