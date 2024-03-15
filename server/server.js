@@ -38,17 +38,18 @@ app.post('/login', (req, res) => {
   })
 })
 
-// app.get('/', (req, res) => {
-//   const sql = "SELECT * FROM users";
-//   db.query(sql, (err, result) => {
-//     if (err) return res.json({Message: "Server error"});
-//     return res.json(result);
-//   })
-// })
-
 // Student Type
 app.get('/student-type', (req, res) => {
   const sql = "SELECT * FROM student_type";
+  db.query(sql, (err, result) => {
+    if (err) return res.json({Message: "Server error"});
+    return res.json(result);
+  })
+})
+
+// Student Gender
+app.get('/gender', (req, res) => {
+  const sql = "SELECT * FROM gender";
   db.query(sql, (err, result) => {
     if (err) return res.json({Message: "Server error"});
     return res.json(result);
