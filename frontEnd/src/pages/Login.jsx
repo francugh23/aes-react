@@ -3,7 +3,6 @@ import Logo from "../assets/school-logo.png";
 import FloatingInput from "../components/UI/FloatingInput";
 import Button from "../components/UI/BSButton";
 import { useEffect, useState } from "react";
-import { Link, RouterProvider, Navigate } from "react-router-dom";
 import Axios from "axios";
 import md5 from "md5";
 

@@ -12,7 +12,7 @@ const Sidebar = () => {
           <p className="fw-bold text-secondary">Navigation</p>
           <div className="d-flex flex-column justify-content-center">
             <a href="/nemesis/enrollment" className="btn btn-primary">
-              <span className="me-3"><i class="fas fa-user-plus"></i></span>
+              <span className="me-3"><i className="fas fa-user-plus"></i></span>
               Enrollment Form
             </a>
           </div>

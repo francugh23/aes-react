@@ -1,5 +1,18 @@
+import { useEffect, useState } from "react"
 import Input from "../UI/FloatingInput"
+import Axios from "axios"
 const Content = () => {
+  // Student Type
+  const [studType, setStudType] = useState([]);
+
+  useEffect(() => {
+    Axios.get("http://localhost:8081/student-type")
+    .then((response) => {
+      setStudType(response.data);
+    })
+  }, [])
+
+  console.log(studType)
 
   return (
     <>
@@ -18,7 +31,9 @@ const Content = () => {
               </div>
               <div className="col py-2">
                 <select name="studentTypeSelect" id="studentTypeSelect">
-                  <option value="jhs">Junior </option>
+                  {studType.map((d, i) => {
+                    <option value={i}>{d.description}</option>
+                  })}
                 </select>
               </div>
               <div className="col py-2">
