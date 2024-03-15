@@ -10,7 +10,18 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "nemesis"
+  database: "test"
+})
+
+// Connection checker
+db.connect(function(error) {
+  if(error) {
+    console.log("Error : " + error.message);
+  } else {
+    console.log("Connected");
+    // Send a success in frontEnd
+
+  }
 })
 
 // Login Auth

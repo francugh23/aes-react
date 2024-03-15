@@ -7,7 +7,7 @@ const Entry = () => {
     <>
       <Sidebar />
       <Topbar />
-      <Outlet marginTop='69px' marginLeft='255px' />
+      <Outlet marginTop='69px' marginLeft='255px' width='100%' />
     </>
   )
 }

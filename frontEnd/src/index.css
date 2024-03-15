@@ -14,5 +14,14 @@
 }
 
 #root {
-  overflow: hidden;
+    overflow: hidden;
+}
+
+#wrapper {
+  width: 100% !important;
+  padding-left: 255px !important;
+}
+
+#wrapper .content {
+  padding-top: 75px !important;
 }
