@@ -2,7 +2,7 @@ import "../index.css";
 import Logo from "../assets/school-logo.png";
 import FloatingInput from "../components/UI/FloatingInput";
 import Button from "../components/UI/BSButton";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Axios from "axios";
 import md5 from "md5";
 
@@ -24,10 +24,11 @@ const Login = () => {
       password: md5(password),
     }).then((response) => {
       console.log(response);
-      if(response.data == 'Success') {
-        location.href = '/nemesis/dashboard'
-      } else if (response.data == 'Failed') {
+      if(response.data === 'Failed') {
         alert('Invalid Username / Password');
+      } else {
+        // add user session
+        // location.href = '/nemesis/dashboard'
       }
     })
   }
@@ -39,17 +40,21 @@ const Login = () => {
           <div className="col-4 bg-light">
             <div className="d-flex flex-column justify-content-center align-items-center h-100">
               <img src={Logo} alt="school-logo" width={width}  className="mb-5"/>
-              <FloatingInput type='text' idName='username' placeholder='ID' onChange={
-                (e) => {
-                  setUsername(e.target.value);
-                }
-              }/>
-              <FloatingInput type='password' idName='userPass' placeholder='Password' onChange={
-                (e) => {
-                  setPassword(e.target.value);
-                }
-              } />
-              <Button type='button' value='Login' class='btn btn-lg btn-success w-75' onClick={login} />
+              <div className="w-50 mb-3">
+                <FloatingInput type='text' idName='username' placeholder='ID' onChange={
+                  (e) => {
+                    setUsername(e.target.value);
+                  }
+                }/>
+              </div>
+              <div className="w-50 mb-3">
+                <FloatingInput type='password' idName='userPass' placeholder='Password' onChange={
+                  (e) => {
+                    setPassword(e.target.value);
+                  }
+                } />
+              </div>
+              <Button type='button' value='Login' class='btn btn-lg btn-success w-50' onClick={login} />
             </div>
           </div>
           <div className="col p-0 position-relative">

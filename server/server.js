@@ -6,6 +6,12 @@ const app = express();
 app.use(express.json())
 app.use(cors());
 
+// Listener
+app.listen(8081, ()=> {
+  console.log("Listening")
+})
+
+// Connection String
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -31,7 +37,7 @@ app.post('/login', (req, res) => {
   db.query(sql, [req.body.username, req.body.password], (err, data) => {
     if(err) return res.json('Error');
     if(data.length > 0) {
-      return res.json('Success');
+      return res.json(data);
     } else {
       return res.json('Failed');
     }
@@ -54,8 +60,4 @@ app.get('/gender', (req, res) => {
     if (err) return res.json({Message: "Server error"});
     return res.json(result);
   })
-})
-
-app.listen(8081, ()=> {
-  console.log("Listening")
 })
