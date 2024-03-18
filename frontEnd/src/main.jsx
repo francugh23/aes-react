@@ -9,6 +9,7 @@ import Entry from './pages/Entry'
 import Enrollment from './components/Enrollment'
 import Dashboard from './components/Dashboard'
 import PageNotFound from './pages/PageNotFound'
+import Records from './components/Records/Records'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
       {
         path: "/nemesis/enrollment",
         element: <Enrollment />,
+        // errorElement: <PageNotFound />,
+      },
+      {
+        path: "/nemesis/student-records",
+        element: <Records />,
         // errorElement: <PageNotFound />,
       }
     ]

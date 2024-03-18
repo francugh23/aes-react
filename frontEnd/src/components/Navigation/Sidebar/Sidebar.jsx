@@ -10,10 +10,16 @@ const Sidebar = () => {
           </Link>
           <hr />
           <p className="fw-bold text-secondary">Navigation</p>
-          <div className="d-flex flex-column justify-content-center">
+          <div className="d-flex flex-column justify-content-center mb-2">
             <a href="/nemesis/enrollment" className="btn btn-primary">
               <span className="me-3"><i className="fas fa-user-plus"></i></span>
               Enrollment Form
+            </a>
+          </div>
+          <div className="d-flex flex-column justify-content-center mb-2">
+            <a href="/nemesis/student-records" className="btn btn-primary">
+              <span className="me-3"><i className="fas fa-id-card"></i></span>
+              Student Records
             </a>
           </div>
         </div>
