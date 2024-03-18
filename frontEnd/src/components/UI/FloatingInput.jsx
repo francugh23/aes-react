@@ -9,6 +9,7 @@ const FloatingInput = (props) => {
         name={props.idName}
         placeholder={props.placeholder}
         onChange={props.onChange}
+        required={true}
       />
       <label htmlFor="floatingInput">{props.placeholder}</label>
     </div>

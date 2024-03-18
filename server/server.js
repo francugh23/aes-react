@@ -16,7 +16,7 @@ const db = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "nemesis"
+  database: "nemesis",
 })
 
 // Connection checker
@@ -44,7 +44,7 @@ app.post('/login', (req, res) => {
   })
 })
 
-// Student Type
+// Get Student Type
 app.get('/student-type', (req, res) => {
   const sql = "SELECT * FROM student_type";
   db.query(sql, (err, result) => {
@@ -53,11 +53,31 @@ app.get('/student-type', (req, res) => {
   })
 })
 
-// Student Gender
+// Get Student Gender
 app.get('/gender', (req, res) => {
   const sql = "SELECT * FROM gender";
   db.query(sql, (err, result) => {
     if (err) return res.json({Message: "Server error"});
     return res.json(result);
   })
+})
+
+// // Insert Student Data
+// app.post('/insert-student-data', (req, res) => {
+//   const sql = "
+//         Query1;
+//         Query2;
+//   ";
+
+//   db.query(sql, [req.])
+// })
+
+// Fetch Student Data
+app.get('/fetch-student-data', (req, res) => {
+  const sql = "SELECT *, DATE(birthdate) as bdate FROM students";
+
+  db.query(sql, (err, data) => {
+    if (err) return res.json("Server Error");
+    return res.json(data)
+  });
 })

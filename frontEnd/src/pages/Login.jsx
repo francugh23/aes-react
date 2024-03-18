@@ -38,7 +38,7 @@ const Login = () => {
       <div className="bg-dark container-fluid" id="login-container">
         <div className="row">
           <div className="col-4 bg-light">
-            <div className="d-flex flex-column justify-content-center align-items-center h-100">
+            <form onSubmit={login} className="d-flex flex-column justify-content-center align-items-center h-100">
               <img src={Logo} alt="school-logo" width={width}  className="mb-5"/>
               <div className="w-50 mb-3">
                 <FloatingInput type='text' idName='username' placeholder='ID' onChange={
@@ -54,8 +54,8 @@ const Login = () => {
                   }
                 } />
               </div>
-              <Button type='button' value='Login' class='btn btn-lg btn-success w-50' onClick={login} />
-            </div>
+              <Button type='submit' value='Login' class='btn btn-lg btn-success w-50' />
+            </form>
           </div>
           <div className="col p-0 position-relative">
             <div className="position-absolute z-3 top-50 start-50 translate-middle">
