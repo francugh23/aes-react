@@ -9,7 +9,7 @@ const Topbar = () => {
         <div className="container-fluid px-5">
           <a className="navbar-brand" href={reload}>
             <img src={logo} alt="" width={50}/>
-            <span className='h4 mx-3 my-auto text-secondary align-middle'>NVGHS - AES</span>
+            <span className='h4 mx-3 my-auto text-secondary align-middle'>NVGCHS - AES</span>
           </a>
 
           <div>
