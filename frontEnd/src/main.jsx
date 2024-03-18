@@ -8,23 +8,28 @@ import Login from './pages/Login'
 import Entry from './pages/Entry'
 import Enrollment from './components/Enrollment'
 import Dashboard from './components/Dashboard'
+import PageNotFound from './pages/PageNotFound'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login />,
+    // errorElement: <PageNotFound />,
   },
   {
     path: "/nemesis",
     element: <Entry />,
+    // errorElement: <PageNotFound />,
     children: [
       {
         path: "/nemesis/dashboard",
-        element: <Dashboard />
+        element: <Dashboard />,
+        // errorElement: <PageNotFound />,
       },
       {
         path: "/nemesis/enrollment",
-        element: <Enrollment />
+        element: <Enrollment />,
+        // errorElement: <PageNotFound />,
       }
     ]
   },

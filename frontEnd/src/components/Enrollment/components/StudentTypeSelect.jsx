@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import Axios from "axios";
 
-const StudentTypeSelect = () => {
+const StudentTypeSelect = (props) => {
 
   // Student Type
   const [studTypeSelect, setStudTypeSelect] = useState([]);
@@ -17,7 +17,11 @@ const StudentTypeSelect = () => {
 
   return (
     <>
-      <select name="studentTypeSelect" id="studentTypeSelect" className="form-select fs-6 alert border shadow-sm">
+      <select name="studentTypeSelect" id="studentTypeSelect" 
+        className="form-select fs-6 alert border shadow-sm"
+        onChange={props.onChange}
+        >
+          <option selected={true} disabled>Student Type</option>
         {studTypeSelect.map((data, index) => {
           return <option key={index} value={data.code}>{data.description}</option>
         })}

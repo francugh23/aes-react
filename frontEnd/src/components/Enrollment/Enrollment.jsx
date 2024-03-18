@@ -1,3 +1,4 @@
+import BSButton from "../UI/BSButton"
 import AddressContact from "./AddressContact"
 import LearnerInformation from "./LearnerInformation"
 import EnrollmentHeader from "./components/EnrollmentHeader"
@@ -10,6 +11,10 @@ const Enrollment = () => {
             <EnrollmentHeader />
             <LearnerInformation />
             <AddressContact />
+          </div>
+          <div className="card-footer">
+            <BSButton type='submit' class='btn btn-primary me-2' value='Submit' />
+            <BSButton type='button' class='btn btn-danger me-2' value='Clear' />
           </div>
         </div>
       </div>

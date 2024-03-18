@@ -4,8 +4,8 @@ const ImageUploader = (props) => {
     <>
       <div className="container h-100 justify-content-center align-items-center card card-body">
         <label htmlFor={props.idName} className='text-center my-2'>{props.label}</label>
-        <Button type='button' class='btn btn-primary w-25' idName='imgUploader' value='Browse' />
-        <input type="file" name={props.idName} id={props.idName} hidden accept="img/*" />
+        <label htmlFor={props.idName} className='text-center my-2 btn btn-primary'>Browse</label>
+        <input type="file" name={props.idName} id={props.idName} hidden accept="Img/*" />
       </div>
     </>
   )

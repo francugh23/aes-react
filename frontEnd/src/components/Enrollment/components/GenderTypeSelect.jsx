@@ -17,7 +17,7 @@ const GenderTypeSelect = () => {
   return (
     <>
       <select name="genderSelect" id="genderSelect" className="form-select fs-6 alert border shadow-sm">
-        <option selected disabled>Gender</option>
+        <option disabled>Gender</option>
         {gender.map((data, index) => {
           return <option key={index} value={data.code}>{data.description}</option>
         })}
