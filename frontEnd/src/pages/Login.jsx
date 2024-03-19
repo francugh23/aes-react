@@ -1,10 +1,10 @@
-import "../index.css";
-import Logo from "../assets/school-logo.png";
-import FloatingInput from "../components/UI/FloatingInput";
-import Button from "../components/UI/BSButton";
-import { useState } from "react";
-import Axios from "axios";
-import md5 from "md5";
+import "../index.css"
+import Logo from "../assets/school-logo.png"
+import FloatingInput from "../components/UI/FloatingInput"
+import Button from "../components/UI/BSButton"
+import { useState } from "react"
+import Axios from "axios"
+import md5 from "md5"
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -26,7 +26,7 @@ const Login = () => {
     } catch (error) {
       console.error("Login error:", error);
     }
-  };
+  }
 
   return (
     <>

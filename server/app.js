@@ -19,35 +19,36 @@ app.listen(3000, () => {
 
 // Login Auth Yohan
 app.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body
   try {
-    const loginResult = await loginAuth(username, password);
+    const loginResult = await loginAuth(username, password)
     if (loginResult.length > 0) {
-      res.json(loginResult);
+      res.json(loginResult)
     } else {
-      res.status(401).json({ message: "Invalid username or password" });
+      res.status(401).json({ message: "Invalid username or password" })
     }
   } catch (error) {
     console.error("Login error:", error);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Internal server error" })
   }
-});
+})
 
 // Gender Options Oko
 app.get("/gender-options", async (req, res) => {
-  const genderResult = await genderSelect();
+  const genderResult = await genderSelect()
   if (genderResult.length > 0) {
-    res.json(genderResult);
+    res.json(genderResult)
   }
 });
 
 // Student Type Oko
 app.get("/student-type", async (req, res) => {
-  const studentTypeResult = await studentTypeSelect();
+  const studentTypeResult = await studentTypeSelect()
   if (studentTypeResult.length > 0) {
-    res.json(studentTypeResult);
+    res.json(studentTypeResult)
   }
-});
+})
+
 // Connection Checker
 // db.connect(function(error) {
 //   if(error) {
