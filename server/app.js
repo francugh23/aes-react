@@ -17,26 +17,6 @@ app.listen(3000, () => {
   console.log('Server is running on port 3000')
 })
 
-// Displaying all users from users table
-app.get("/users", async (req, res) => {
-  const users = await getUsers()
-  res.send(users)
-})
-
-// Login Auth
-// app.post('/login', (req, res) => {
-//   const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
-
-//   db.query(sql, [req.body.username, req.body.password], (err, data) => {
-//     if (err) return res.json('Error');
-//     if (data.length > 0) {
-//       return res.json(data);
-//     } else {
-//       return res.json('Failed');
-//     }
-//   })
-// })
-
 // Login Auth Yohan
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
@@ -52,6 +32,55 @@ app.post("/login", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+// Displaying all users from users table
+app.get("/users", async (req, res) => {
+  const users = await getUsers()
+  res.send(users)
+})
+
+// // Get Student Type
+// app.get('/student-type', (req, res) => {
+//   const sql = "SELECT * FROM student_type";
+//   db.query(sql, (err, result) => {
+//     if (err) return res.json({Message: "Server error"});
+//     return res.json(result);
+//   })
+// })
+
+// // Get Student Gender
+// app.get('/gender', (req, res) => {
+//   const sql = "SELECT * FROM gender";
+//   db.query(sql, (err, result) => {
+//     if (err) return res.json({Message: "Server error"});
+//     return res.json(result);
+//   })
+// })
+
+
+// // Fetch Student Data
+// app.get('/fetch-student-data', (req, res) => {
+//   const sql = "SELECT *, DATE(birthdate) as bdate FROM students";
+
+//   db.query(sql, (err, data) => {
+//     if (err) return res.json("Server Error");
+//     return res.json(data)
+//   });
+// })
+
+// Login Auth
+// app.post('/login', (req, res) => {
+//   const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
+
+//   db.query(sql, [req.body.username, req.body.password], (err, data) => {
+//     if (err) return res.json('Error');
+//     if (data.length > 0) {
+//       return res.json(data);
+//     } else {
+//       return res.json('Failed');
+//     }
+//   })
+// })
 
 // Connection Checker
 // db.connect(function(error) {
