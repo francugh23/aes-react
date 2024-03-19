@@ -1,8 +1,10 @@
 import express from 'express'
-import { getUsers } from './server.js'
+import { getUsers, loginAuth } from './server.js'
+import cors from 'cors'
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 
 // Error Handling
 app.use((err, req, res, next) => {
@@ -21,7 +23,35 @@ app.get("/users", async (req, res) => {
   res.send(users)
 })
 
+// Login Auth
+// app.post('/login', (req, res) => {
+//   const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
 
+//   db.query(sql, [req.body.username, req.body.password], (err, data) => {
+//     if (err) return res.json('Error');
+//     if (data.length > 0) {
+//       return res.json(data);
+//     } else {
+//       return res.json('Failed');
+//     }
+//   })
+// })
+
+// Login Auth Yohan
+app.post("/login", async (req, res) => {
+  const { username, password } = req.body;
+  try {
+    const loginResult = await loginAuth(username, password);
+    if (loginResult.length > 0) {
+      res.json(loginResult);
+    } else {
+      res.status(401).json({ message: "Invalid username or password" });
+    }
+  } catch (error) {
+    console.error("Login error:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 // Connection Checker
 // db.connect(function(error) {

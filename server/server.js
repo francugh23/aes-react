@@ -1,6 +1,6 @@
 // Functions and processes nalang siguro dito lahat.
 
-// Expressed was already imported in app.js
+// Express was already imported in app.js
 // import express from 'express'
 // import cors from 'cors'
 
@@ -42,6 +42,16 @@ export async function getUsers() {
   return rows
 }
 
+export async function loginAuth(username, password) {
+  try {
+    const [rows] = await db.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password]);
+    return rows;
+  } catch (error) {
+    console.error("Login authentication error:", error);
+    throw error; // Propagate error to caller
+  }
+}
+
 // Connection checker, also transferred to app.js
 // db.connect(function(error) {
 //   if(error) {
@@ -51,20 +61,6 @@ export async function getUsers() {
 //     // Send a success in frontEnd
 
 //   }
-// })
-
-// Login Auth
-// app.post('/login', (req, res) => {
-//   const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
-
-//   db.query(sql, [req.body.username, req.body.password], (err, data) => {
-//     if (err) return res.json('Error');
-//     if (data.length > 0) {
-//       return res.json(data);
-//     } else {
-//       return res.json('Failed');
-//     }
-//   })
 // })
 
 // // Get Student Type
