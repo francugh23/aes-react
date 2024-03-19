@@ -1,15 +1,14 @@
 // Functions and processes nalang siguro dito lahat.
 
 
-import express from 'express'
-import mysql from 'mysql2'
-import cors from 'cors'
-import dotenv from 'dotenv'
-dotenv.config()
+// import express from 'express'
+// import cors from 'cors'
 
-const app = express();
-app.use(express.json())
-app.use(cors());
+import mysql from 'mysql2'
+
+// const app = express();
+// app.use(express.json())
+// app.use(cors());
 
 // Listener, i transfered this to app.js
 // app.listen(8081, ()=> {
@@ -17,20 +16,31 @@ app.use(cors());
 // })
 
 // Connection String by Darlito
-// const db = mysql.createConnection({
+// const db = mysql.createPool({
 //   host: "localhost",
 //   user: "root",
 //   password: "",
 //   database: "nemesis",
-// })
+// }).promise()
 
 // Connection by Yohan
-const db = mysql.createConnection({
-  host: process.env.MYSQL_HOST,
-  host: process.env.MYSQL_USERNAME,
-  host: process.env.MYSQL_PASSWORD,
-  host: process.env.MYSQL_DATABASE
+const db = mysql.createPool({
+  // host: process.env.MYSQL_HOST,
+  // host: process.env.MYSQL_USERNAME,
+  // host: process.env.MYSQL_PASSWORD,
+  // host: process.env.MYSQL_DATABASE
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "nemesis"
 }).promise()
+
+// Try lang ito kung gagana, try mo muna sa thunderbird client
+// Displaying all users
+export async function getUsers() {
+  const [rows] = await db.query("SELECT * FROM users")
+  return rows
+}
 
 // Connection checker, also transferred to app.js
 // db.connect(function(error) {
@@ -43,45 +53,46 @@ const db = mysql.createConnection({
 //   }
 // })
 
-// Login Auth
-app.post('/login', (req, res) => {
-  const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
+// // Login Auth
+// app.post('/login', (req, res) => {
+//   const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
 
-  db.query(sql, [req.body.username, req.body.password], (err, data) => {
-    if(err) return res.json('Error');
-    if(data.length > 0) {
-      return res.json(data);
-    } else {
-      return res.json('Failed');
-    }
-  })
-})
-
-// Get Student Type
-app.get('/student-type', (req, res) => {
-  const sql = "SELECT * FROM student_type";
-  db.query(sql, (err, result) => {
-    if (err) return res.json({Message: "Server error"});
-    return res.json(result);
-  })
-})
-
-// Get Student Gender
-app.get('/gender', (req, res) => {
-  const sql = "SELECT * FROM gender";
-  db.query(sql, (err, result) => {
-    if (err) return res.json({Message: "Server error"});
-    return res.json(result);
-  })
-})
+//   db.query(sql, [req.body.username, req.body.password], (err, data) => {
+//     if(err) return res.json('Error');
+//     if(data.length > 0) {
+//       return res.json(data);
+//     } else {
+//       return res.json('Failed');
+//     }
+//   })
+// })
 
 
-// Fetch Student Data
-app.get('/fetch-student-data', (req, res) => {
-  const sql = "SELECT *, DATE(birthdate) as bdate FROM students";
+// // Get Student Type
+// app.get('/student-type', (req, res) => {
+//   const sql = "SELECT * FROM student_type";
+//   db.query(sql, (err, result) => {
+//     if (err) return res.json({Message: "Server error"});
+//     return res.json(result);
+//   })
+// })
 
-  db.query(sql, (err, data) => {
-    if (err) return res.json("Server Error");
-    return res.json(data)
-  });
-})
+// // Get Student Gender
+// app.get('/gender', (req, res) => {
+//   const sql = "SELECT * FROM gender";
+//   db.query(sql, (err, result) => {
+//     if (err) return res.json({Message: "Server error"});
+//     return res.json(result);
+//   })
+// })
+
+
+// // Fetch Student Data
+// app.get('/fetch-student-data', (req, res) => {
+//   const sql = "SELECT *, DATE(birthdate) as bdate FROM students";
+
+//   db.query(sql, (err, data) => {
+//     if (err) return res.json("Server Error");
+//     return res.json(data)
+//   });
+// })
