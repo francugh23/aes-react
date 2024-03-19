@@ -1,17 +1,17 @@
 /*
  Navicat Premium Data Transfer
 
- Source Server         : franco
+ Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 100428 (10.4.28-MariaDB)
+ Source Server Version : 100432 (10.4.32-MariaDB)
  Source Host           : localhost:3306
  Source Schema         : nemesis
 
  Target Server Type    : MySQL
- Target Server Version : 100428 (10.4.28-MariaDB)
+ Target Server Version : 100432 (10.4.32-MariaDB)
  File Encoding         : 65001
 
- Date: 15/03/2024 09:59:17
+ Date: 19/03/2024 19:34:00
 */
 
 SET NAMES utf8mb4;
@@ -30,7 +30,7 @@ CREATE TABLE `address`  (
   `country` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `zipcode` int NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of address
@@ -68,7 +68,7 @@ CREATE TABLE `enrollment`  (
   CONSTRAINT `enrollment_subjects` FOREIGN KEY (`subject_id`) REFERENCES `subjects` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `enrollment_track_strand` FOREIGN KEY (`track_strand_id`) REFERENCES `track_strand` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `enrollment_year` FOREIGN KEY (`year_id`) REFERENCES `year` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of enrollment
@@ -87,7 +87,7 @@ CREATE TABLE `parents`  (
   `guardian_fullname` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `guardian_phonenumber` bigint NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of parents
@@ -99,30 +99,100 @@ CREATE TABLE `parents`  (
 DROP TABLE IF EXISTS `sections`;
 CREATE TABLE `sections`  (
   `id` int NOT NULL AUTO_INCREMENT,
+  `year_id` int NULL DEFAULT NULL,
   `description` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `adviser` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `room` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `sections_year`(`year_id` ASC) USING BTREE,
+  CONSTRAINT `sections_year` FOREIGN KEY (`year_id`) REFERENCES `year` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 83 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sections
 -- ----------------------------
-
--- ----------------------------
--- Table structure for semester
--- ----------------------------
-DROP TABLE IF EXISTS `semester`;
-CREATE TABLE `semester`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `code` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `description` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Records of semester
--- ----------------------------
-INSERT INTO `semester` VALUES (1, '1', 'First Semester');
-INSERT INTO `semester` VALUES (2, '2', 'Second Semester');
+INSERT INTO `sections` VALUES (1, 1, 'Atlantis', 'Maricris G. Valdez', 'ESF 102');
+INSERT INTO `sections` VALUES (2, 1, 'Discoverer', 'Leah Gay C. Valdez', 'PTA 104');
+INSERT INTO `sections` VALUES (3, 1, 'Challenger', 'Purification B. Asis', 'PTA 103');
+INSERT INTO `sections` VALUES (4, 1, 'Endeavour', 'Julieta P. Taberna', 'ESF 201');
+INSERT INTO `sections` VALUES (5, 1, 'Francisco', 'Maria Teresa A. Garingan', 'SPA 202');
+INSERT INTO `sections` VALUES (6, 1, 'Manansala', 'Michelle M. Esteban', 'SPA 201');
+INSERT INTO `sections` VALUES (7, 1, 'CP Romulo', 'Maximino B. Noveda Jr.', 'IM 206');
+INSERT INTO `sections` VALUES (8, 1, 'Confucius (SPFL)', 'Romelee Shayne A. Acoba', 'AB4 401');
+INSERT INTO `sections` VALUES (9, 1, 'Bravery', 'Avegael B. Borja', 'AB4 203');
+INSERT INTO `sections` VALUES (10, 1, 'Diligence', 'Jessa D. Antonio', 'AB4 301');
+INSERT INTO `sections` VALUES (11, 1, 'Faithfulness', 'Evangeline P. Mamugay', 'AB4 302');
+INSERT INTO `sections` VALUES (12, 1, 'Generosity', 'Marivic M. Cadiz', 'AB4 403');
+INSERT INTO `sections` VALUES (13, 1, 'Honesty', 'Rachel P. Reyes', 'AB4 101');
+INSERT INTO `sections` VALUES (14, 1, 'Humility', 'Joy W. Flores', 'AB4 402');
+INSERT INTO `sections` VALUES (15, 1, 'Industrious', 'Donalynne A. Sebastian', 'OB 202');
+INSERT INTO `sections` VALUES (16, 1, 'Loyalty', 'Ana Liza A. Balido', 'AB4 303');
+INSERT INTO `sections` VALUES (17, 1, 'Obedience', 'Glenda P. Mendoza', 'AB4 102');
+INSERT INTO `sections` VALUES (18, 1, 'Prudence', 'Mary Grace P. Bautista', 'AB4 201');
+INSERT INTO `sections` VALUES (19, 1, 'Purity', 'Emilia B. Matabye', 'AB4 202');
+INSERT INTO `sections` VALUES (20, 1, 'Trustworthy', 'Rosemarie P. Sierra', 'AB4 103');
+INSERT INTO `sections` VALUES (21, 2, 'Explorer', 'Voltaire S. Jacinto', 'PTA 101');
+INSERT INTO `sections` VALUES (22, 2, 'Pioneer', 'Irene M. Walis', 'ESF 202');
+INSERT INTO `sections` VALUES (23, 2, 'Vanguard', 'Ariane Vinna D. Gumih-o', 'ESF 203');
+INSERT INTO `sections` VALUES (24, 2, 'Amorsolo', 'Rosilyn A. Santos', 'IM 207');
+INSERT INTO `sections` VALUES (25, 2, 'Abueva', 'Angelie C. Garcia', 'EL 101');
+INSERT INTO `sections` VALUES (26, 2, 'JP Rizal', 'Mikhael Jan Pating', 'IM 204');
+INSERT INTO `sections` VALUES (27, 2, 'Carnia', 'Nestor R. Ambatali', 'IM 103');
+INSERT INTO `sections` VALUES (28, 2, 'Carnation', 'Elizabeth A. Damaso', 'IM 104');
+INSERT INTO `sections` VALUES (29, 2, 'Daffodil', 'Grefalyn U. Rivera', 'IM 108');
+INSERT INTO `sections` VALUES (30, 2, 'Gladiola', 'Marina P. Penas', 'IM 203');
+INSERT INTO `sections` VALUES (31, 2, 'Hyacinth', 'Lea Marie Cadiz', 'LB 102');
+INSERT INTO `sections` VALUES (32, 2, 'Ilang-ilang', 'Jenalyn Bautista', 'OB 101');
+INSERT INTO `sections` VALUES (33, 2, 'Lao Tzu', 'Divina L. Butale', 'IM 201');
+INSERT INTO `sections` VALUES (34, 2, 'Lily', 'Christian S. Jorge', 'IM 101');
+INSERT INTO `sections` VALUES (35, 2, 'Magnolia', 'Lorna D. Roldan', 'IM 208');
+INSERT INTO `sections` VALUES (36, 2, 'Orchid', 'Adora Marie Peralta', 'IM 105');
+INSERT INTO `sections` VALUES (37, 2, 'Periwinkle', 'Sherwin Bendoy', 'IM 202');
+INSERT INTO `sections` VALUES (38, 2, 'Rose', 'Marites C. Claur', 'IM 107');
+INSERT INTO `sections` VALUES (39, 2, 'Stargazer', 'Marilou M. Gan', 'IM 102');
+INSERT INTO `sections` VALUES (40, 2, 'Sunflower', 'Jonna Jasmin C. Dela Cruz', 'IM 106');
+INSERT INTO `sections` VALUES (41, 2, 'Tulip', 'Vinus F. Pidut', 'LB 101');
+INSERT INTO `sections` VALUES (42, 3, 'Apollo', 'Aloyda B. Calangan', 'PTA 102');
+INSERT INTO `sections` VALUES (43, 3, 'Gemini', 'Mylene T. Guntalilib', 'AB1 202');
+INSERT INTO `sections` VALUES (44, 3, 'Soyuz', 'Fe B. Tabago', 'ESF 103');
+INSERT INTO `sections` VALUES (45, 3, 'Hidalgo', 'Rose Mary C. Tabangcura', 'SPA 101');
+INSERT INTO `sections` VALUES (46, 3, 'Edades', 'Mark Eulogio Santiago', 'SPA 102');
+INSERT INTO `sections` VALUES (47, 3, 'Tiempo', 'Racquel Almendra', 'IM 205');
+INSERT INTO `sections` VALUES (48, 3, 'Mercury', 'Babylyn P. Ambatali', 'AB5 203');
+INSERT INTO `sections` VALUES (49, 3, 'Zinc', 'Katrina Rose R. Catap', 'AB5 205');
+INSERT INTO `sections` VALUES (50, 3, 'Manganese', 'Rehina R. Galpito', 'AB1 203');
+INSERT INTO `sections` VALUES (51, 3, 'Krypton', 'Melissa D. Inway', 'AB5 106');
+INSERT INTO `sections` VALUES (52, 3, 'Nickel', 'Queensie Mae F. Ocampo', 'AB5 201');
+INSERT INTO `sections` VALUES (53, 3, 'Argon', 'Jenalyn B. Erasquin', 'AB5 102');
+INSERT INTO `sections` VALUES (54, 3, 'Lithium', 'Jimbo M. Taberna', 'AB5 103');
+INSERT INTO `sections` VALUES (55, 3, 'Gold', 'Sherwin B. Quevedo', 'AB5 105');
+INSERT INTO `sections` VALUES (56, 3, 'Oxygen', 'Ricalyne Mhae S. Castro', 'AB5 101');
+INSERT INTO `sections` VALUES (57, 3, 'Silver', 'Emil John S. Elizaga', 'AB5 202');
+INSERT INTO `sections` VALUES (58, 3, 'Titanium', 'Erwin S. Ladaga', 'IM 210');
+INSERT INTO `sections` VALUES (59, 3, 'Hydrogen', 'Jessie Pasamonte', 'AB5 104');
+INSERT INTO `sections` VALUES (60, 3, 'Platinum', 'Romelyn Grace G. Eugenio', 'IM 209');
+INSERT INTO `sections` VALUES (61, 3, 'Radium', 'Jeric Trojan O. Lopez', 'AB5 206');
+INSERT INTO `sections` VALUES (62, 3, 'Uranium', 'Ivy Nethercott Lopez', 'DOST 101');
+INSERT INTO `sections` VALUES (63, 4, 'Mariner', 'Romeo N. Valdez Jr.', 'AB1 204');
+INSERT INTO `sections` VALUES (64, 4, 'Voyager', 'Nathaniel R. Almendra', 'ESF 101');
+INSERT INTO `sections` VALUES (65, 4, 'Viking', 'Sheila Moana Marie I. Gonzales', 'AB1 201');
+INSERT INTO `sections` VALUES (66, 4, 'Juan Luna', 'Erwin Joseph D. Dumelod', 'AB1 201');
+INSERT INTO `sections` VALUES (67, 4, 'Jose De Jesus', 'Abigail Vanessa B. Pablo', 'AB5 304');
+INSERT INTO `sections` VALUES (68, 4, 'Graciano Lopez Jaena', 'Aumary Lordxander D. Baysa', 'AB1 102');
+INSERT INTO `sections` VALUES (69, 4, 'Acacia', 'Benedick G. Madriaga', NULL);
+INSERT INTO `sections` VALUES (70, 4, 'Agoho', 'Leonor T. Jacinto', NULL);
+INSERT INTO `sections` VALUES (71, 4, 'Almon', 'Edison A. Simon', NULL);
+INSERT INTO `sections` VALUES (72, 4, 'Bani', 'Nelia D. Acob', NULL);
+INSERT INTO `sections` VALUES (73, 4, 'Ebony', 'Jaime Ace C. Acosta', NULL);
+INSERT INTO `sections` VALUES (74, 4, 'Gmelina', 'Gina G. Pasamonte', NULL);
+INSERT INTO `sections` VALUES (75, 4, 'Guiho', 'Maylene D. Bactol', NULL);
+INSERT INTO `sections` VALUES (76, 4, 'Kamagong', 'Joie M. Mago', NULL);
+INSERT INTO `sections` VALUES (77, 4, 'Katmon', 'Lickrish Minia', NULL);
+INSERT INTO `sections` VALUES (78, 4, 'Lauan', 'Maria Violeta A. De Ocampo', NULL);
+INSERT INTO `sections` VALUES (79, 4, 'Mahogany', 'John Paul D. Purigay', NULL);
+INSERT INTO `sections` VALUES (80, 4, 'Molave', 'Ephraim Joy M. Ellaga', NULL);
+INSERT INTO `sections` VALUES (81, 4, 'Narra', 'Valerie Valeros Padua', NULL);
+INSERT INTO `sections` VALUES (82, 4, 'Yakal', 'Jun-Velt B. Paritang', NULL);
 
 -- ----------------------------
 -- Table structure for student_type
@@ -133,7 +203,7 @@ CREATE TABLE `student_type`  (
   `code` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `description` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of student_type
@@ -165,7 +235,7 @@ CREATE TABLE `students`  (
   INDEX `student_id`(`student_id` ASC) USING BTREE,
   CONSTRAINT `students_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `students_parents` FOREIGN KEY (`parents_id`) REFERENCES `parents` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of students
@@ -183,7 +253,7 @@ CREATE TABLE `subjects`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `subjects_year`(`year_id` ASC) USING BTREE,
   CONSTRAINT `subjects_year` FOREIGN KEY (`year_id`) REFERENCES `year` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of subjects
@@ -234,13 +304,57 @@ INSERT INTO `subjects` VALUES (41, 4, 'PEHM4', 'Physical Education, Health, and 
 DROP TABLE IF EXISTS `track_strand`;
 CREATE TABLE `track_strand`  (
   `id` int NOT NULL AUTO_INCREMENT,
+  `year_id` int NULL DEFAULT NULL,
   `description` varchar(75) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+  `section` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `adviser` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `room` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `track_strand_year`(`year_id` ASC) USING BTREE,
+  CONSTRAINT `track_strand_year` FOREIGN KEY (`year_id`) REFERENCES `year` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
+) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of track_strand
 -- ----------------------------
+INSERT INTO `track_strand` VALUES (1, 6, 'STEM 1', 'Emilio Aguinaldo', 'Marizza C. Versola', 'PTA 202');
+INSERT INTO `track_strand` VALUES (2, 6, 'STEM 2', 'Andres Bonifacio', 'Amherstine C. Quilang', 'AB5 407');
+INSERT INTO `track_strand` VALUES (3, 6, 'STEM 3', 'Apolinario Mabini', 'Diana Grace P. Carino', 'AB5 306');
+INSERT INTO `track_strand` VALUES (4, 6, 'ABM 1', 'Felipe Agoncilio', 'Rowena V. Aguilar', 'AB5 405');
+INSERT INTO `track_strand` VALUES (5, 6, 'ABM 2', 'Teresa Magbanua', 'Arrah Bella L. Tapaoan', 'AB5 403');
+INSERT INTO `track_strand` VALUES (6, 6, 'HUMSS 1', 'Julian Felipe', 'Michelle G. Liquiran', 'AB5 402');
+INSERT INTO `track_strand` VALUES (7, 6, 'HUMSS 2', 'Rafael Palma', 'Precious C. Dolaypan', 'AB5 401');
+INSERT INTO `track_strand` VALUES (8, 6, 'HUMSS 3', 'Epifanio Delos Santos', 'Glory A. Tumayan', 'P2K 102');
+INSERT INTO `track_strand` VALUES (9, 6, 'HUMSS 4', 'Trinidad Tecson', 'Eunicezha F. Camonayan', 'AB5 307');
+INSERT INTO `track_strand` VALUES (10, 6, 'HUMSS 5', 'Marcelo H. Del Pilar', 'Jenny Ann M. Ventura', 'AB5 406');
+INSERT INTO `track_strand` VALUES (11, 6, 'HUMSS 6', 'Melchora Aquino', 'Frances M. Santocildes', 'AB5 305');
+INSERT INTO `track_strand` VALUES (12, 6, 'TVL 1 - BC', 'Josefa Escoda', 'Lino Xernan S. Dacayo III', 'AB5 303');
+INSERT INTO `track_strand` VALUES (13, 6, 'TVL 2 - EIM', 'Diego Silang', 'Michael Jerimae F. Lazaga', 'AB5 301');
+INSERT INTO `track_strand` VALUES (14, 6, 'TVL 3 - ICT', 'Emilio Jacinto', 'Flordeliza Mendoza', 'P2K 103');
+INSERT INTO `track_strand` VALUES (15, 6, 'FBS', 'Lapu-Lapu', 'Charizel C. Lucena', 'AB5 302');
+INSERT INTO `track_strand` VALUES (16, 6, 'TVL-EIM-ALS', 'NVGCHS', 'Gilbert M. Ramos', 'Gym');
+INSERT INTO `track_strand` VALUES (17, 6, 'TVL-EIM-ALS', 'HOPE', 'Jovelyn B. Asuncion', 'PJ');
+INSERT INTO `track_strand` VALUES (18, 5, 'STEM 1', 'Hydra', 'Gretchen Mae B. Pascua', 'AB3 101');
+INSERT INTO `track_strand` VALUES (19, 5, 'STEM 2', 'Arion', 'Zepharine Grace T. Castillo', 'AB3 201');
+INSERT INTO `track_strand` VALUES (20, 5, 'STEM 3', 'Phoenix', 'Zaira Katrina Yango', 'AB3 202');
+INSERT INTO `track_strand` VALUES (21, 5, 'ABM 1', 'Andromeda', 'Ervin T. Dejumo', 'AB2 101');
+INSERT INTO `track_strand` VALUES (22, 5, 'ABM 2', 'Cassiopeia', 'John Eric B. Ricarde', 'AB2 102');
+INSERT INTO `track_strand` VALUES (23, 5, 'HUMSS 1', 'Taurus', 'Gerry A. Gadiano', 'AB2 103');
+INSERT INTO `track_strand` VALUES (24, 5, 'HUMSS 2', 'Capricorn', 'Maripple L. Lacaden', 'AB2 201');
+INSERT INTO `track_strand` VALUES (25, 5, 'HUMSS 3', 'Delphinus', 'Karen R. Ramos', 'AB2 202');
+INSERT INTO `track_strand` VALUES (26, 5, 'HUMSS 4', 'Scorpius', 'Brenda B. Betawang', 'AB3 103');
+INSERT INTO `track_strand` VALUES (27, 5, 'HUMSS 5', 'Centaurus', 'Francis A. Di0at', 'AB6 101');
+INSERT INTO `track_strand` VALUES (28, 5, 'HUMSS 6', 'Aquila', 'Joana Mae C. Castaneto', 'AB3 203');
+INSERT INTO `track_strand` VALUES (29, 5, 'HUMSS 7', 'Pisces', 'Yra Angelique L. Timbreza', 'AB6 201');
+INSERT INTO `track_strand` VALUES (30, 5, 'HUMSS 8', 'Saguitarius', 'Marilou L. Perez', 'PTA 203');
+INSERT INTO `track_strand` VALUES (31, 5, 'TVL 1 - HE', 'Aquarius', 'Veniscelyn D. Roduta', 'AB5 207');
+INSERT INTO `track_strand` VALUES (32, 5, 'TVL 2', 'Aries', 'Christine Joy G. Napone', 'AB2 203');
+INSERT INTO `track_strand` VALUES (33, 5, 'TVL 3', 'Orion', 'Patricia Celine R. Tandoc', 'AB6 301');
+INSERT INTO `track_strand` VALUES (34, 5, 'TVL 4 - CSS', 'Libra', 'Jules Christenz B. Reguyal', 'AB6 401');
+INSERT INTO `track_strand` VALUES (35, 5, 'SPAD', 'Unicorn', 'Darrel B. Trinidad', 'Gym');
+INSERT INTO `track_strand` VALUES (36, 5, 'SPORTS', 'Unicorn', 'Darrel B. Trinidad', 'Gym');
+INSERT INTO `track_strand` VALUES (37, 5, 'TVL-EIM-ALS', 'LOVE', 'Joanna Mae C. Dimaunahan', 'Gym');
+INSERT INTO `track_strand` VALUES (38, 5, 'TVL-EIM-ALS', 'FAITH', 'Jovelyn B. Asuncion', 'PJ');
 
 -- ----------------------------
 -- Table structure for users
@@ -254,7 +368,7 @@ CREATE TABLE `users`  (
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `privilege` enum('ADMIN','SUPER_ADMIN') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
@@ -269,16 +383,16 @@ CREATE TABLE `year`  (
   `id` int NOT NULL AUTO_INCREMENT,
   `year` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of year
 -- ----------------------------
-INSERT INTO `year` VALUES (1, 'Grade 7');
-INSERT INTO `year` VALUES (2, 'Grade 8');
-INSERT INTO `year` VALUES (3, 'Grade 9');
-INSERT INTO `year` VALUES (4, 'Grade 10');
-INSERT INTO `year` VALUES (5, 'Grade 11');
-INSERT INTO `year` VALUES (6, 'Grade 12');
+INSERT INTO `year` VALUES (1, '7');
+INSERT INTO `year` VALUES (2, '8');
+INSERT INTO `year` VALUES (3, '9');
+INSERT INTO `year` VALUES (4, '10');
+INSERT INTO `year` VALUES (5, '11');
+INSERT INTO `year` VALUES (6, '12');
 
 SET FOREIGN_KEY_CHECKS = 1;
