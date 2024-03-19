@@ -1,6 +1,6 @@
 // Functions and processes nalang siguro dito lahat.
 
-
+// Expressed was already imported in app.js
 // import express from 'express'
 // import cors from 'cors'
 
@@ -53,20 +53,19 @@ export async function getUsers() {
 //   }
 // })
 
-// // Login Auth
+// Login Auth
 // app.post('/login', (req, res) => {
 //   const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
 
 //   db.query(sql, [req.body.username, req.body.password], (err, data) => {
-//     if(err) return res.json('Error');
-//     if(data.length > 0) {
+//     if (err) return res.json('Error');
+//     if (data.length > 0) {
 //       return res.json(data);
 //     } else {
 //       return res.json('Failed');
 //     }
 //   })
 // })
-
 
 // // Get Student Type
 // app.get('/student-type', (req, res) => {

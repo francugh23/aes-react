@@ -21,6 +21,8 @@ app.get("/users", async (req, res) => {
   res.send(users)
 })
 
+
+
 // Connection Checker
 // db.connect(function(error) {
 //   if(error) {
