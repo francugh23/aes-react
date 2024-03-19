@@ -17,26 +17,6 @@ app.listen(3000, () => {
   console.log('Server is running on port 3000')
 })
 
-// Displaying all users from users table
-app.get("/users", async (req, res) => {
-  const users = await getUsers()
-  res.send(users)
-})
-
-// Login Auth
-// app.post('/login', (req, res) => {
-//   const sql = "SELECT * FROM users WHERE username = ? AND password = ?"
-
-//   db.query(sql, [req.body.username, req.body.password], (err, data) => {
-//     if (err) return res.json('Error');
-//     if (data.length > 0) {
-//       return res.json(data);
-//     } else {
-//       return res.json('Failed');
-//     }
-//   })
-// })
-
 // Login Auth Yohan
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
