@@ -48,7 +48,7 @@ export async function loginAuth(username, password) {
     return rows;
   } catch (error) {
     console.error("Login authentication error:", error);
-    throw error; // Propagate error to caller
+    throw error
   }
 }
 
