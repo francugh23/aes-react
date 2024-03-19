@@ -6,7 +6,7 @@ const StudentTypeSelect = (props) => {
   // Student Type
   const [studTypeSelect, setStudTypeSelect] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:8081/student-type")
+    Axios.get("http://localhost:3000/student-type")
       .then(res => {
         console.log('Student Type Select : ' + res.status)
         setStudTypeSelect(res.data)

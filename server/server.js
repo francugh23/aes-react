@@ -52,6 +52,24 @@ export async function loginAuth(username, password) {
   }
 }
 
+export async function genderSelect() {
+  try {
+    const [rows] = await db.query("SELECT * FROM gender");
+    return rows;
+  } catch (error) {
+    throw error; // Propagate error to caller
+  }
+}
+
+export async function studentTypeSelect() {
+  try {
+    const [rows] = await db.query("SELECT * FROM student_type");
+    return rows;
+  } catch (error) {
+    throw error; // Propagate error to caller
+  }
+}
+
 // Connection checker, also transferred to app.js
 // db.connect(function(error) {
 //   if(error) {

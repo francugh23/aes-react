@@ -1,5 +1,5 @@
 import express from 'express'
-import { getUsers, loginAuth } from './server.js'
+import { genderSelect, getUsers, loginAuth, studentTypeSelect } from './server.js'
 import cors from 'cors'
 
 const app = express()
@@ -53,6 +53,21 @@ app.post("/login", async (req, res) => {
   }
 });
 
+// Gender Options Oko
+app.get("/gender-options", async (req, res) => {
+  const genderResult = await genderSelect();
+  if (genderResult.length > 0) {
+    res.json(genderResult);
+  }
+});
+
+// Student Type Oko
+app.get("/student-type", async (req, res) => {
+  const studentTypeResult = await studentTypeSelect();
+  if (studentTypeResult.length > 0) {
+    res.json(studentTypeResult);
+  }
+});
 // Connection Checker
 // db.connect(function(error) {
 //   if(error) {

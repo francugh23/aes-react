@@ -5,7 +5,7 @@ const GenderTypeSelect = () => {
   // Gender
   const [gender, setGender] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:8081/gender")
+    Axios.get("http://localhost:3000/gender-options")
       .then(res => {
         console.log(res)
         setGender(res.data)
