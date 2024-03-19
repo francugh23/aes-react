@@ -1,34 +1,47 @@
+// Functions and processes nalang siguro dito lahat.
+
+
 import express from 'express'
-import mysql from 'mysql'
+import mysql from 'mysql2'
 import cors from 'cors'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const app = express();
 app.use(express.json())
 app.use(cors());
 
-// Listener
-app.listen(8081, ()=> {
-  console.log("Listening")
-})
+// Listener, i transfered this to app.js
+// app.listen(8081, ()=> {
+//   console.log("Listening")
+// })
 
-// Connection String
+// Connection String by Darlito
+// const db = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "",
+//   database: "nemesis",
+// })
+
+// Connection by Yohan
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "nemesis",
-})
+  host: process.env.MYSQL_HOST,
+  host: process.env.MYSQL_USERNAME,
+  host: process.env.MYSQL_PASSWORD,
+  host: process.env.MYSQL_DATABASE
+}).promise()
 
-// Connection checker
-db.connect(function(error) {
-  if(error) {
-    console.log("Error : " + error.message);
-  } else {
-    console.log("Connected");
-    // Send a success in frontEnd
+// Connection checker, also transferred to app.js
+// db.connect(function(error) {
+//   if(error) {
+//     console.log("Error : " + error.message);
+//   } else {
+//     console.log("Connected");
+//     // Send a success in frontEnd
 
-  }
-})
+//   }
+// })
 
 // Login Auth
 app.post('/login', (req, res) => {
@@ -62,15 +75,6 @@ app.get('/gender', (req, res) => {
   })
 })
 
-// // Insert Student Data
-// app.post('/insert-student-data', (req, res) => {
-//   const sql = "
-//         Query1;
-//         Query2;
-//   ";
-
-//   db.query(sql, [req.])
-// })
 
 // Fetch Student Data
 app.get('/fetch-student-data', (req, res) => {

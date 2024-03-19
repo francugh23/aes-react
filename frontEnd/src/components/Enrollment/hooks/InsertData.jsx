@@ -15,6 +15,21 @@ const InsertData = (props) => {
     lrn: props.lrn,
     grade: props.grade,
     section: props.section,
+
+    // Address & Contact
+    street: props.street,
+    brgy: props.brgy,
+    municipality: props.municipality,
+    province: props.province,
+    postal: props.postal,
+
+    fatherName: props.fatherName,
+    fatherContact: props.fatherContact,
+    motherName: props.motherName,
+    motherContact: props.motherContact,
+    guardianName: props.guardianName,
+    guardianContact: props.guardianContact,
+    
   }).then((response) => {
     console.log(response);
     if (response.data === 'Failed') {
