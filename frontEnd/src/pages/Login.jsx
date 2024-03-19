@@ -66,7 +66,7 @@ const Login = () => {
               <p className="text-light">
                 <span style={{ fontSize: "50px" }}>NEMESIS</span>
                 <br /> This is an unofficial system made for NVGCHS by Johannes
-                Franco, Darlito Cabalse Jr., and Ervin Klein Soriano
+                Franco, Darlito Cabalse Jr., and Ervin Klein Soriano!
               </p>
             </div>
             <div className="bg-success h-100 opacity-75"></div>
