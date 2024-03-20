@@ -7,12 +7,6 @@ const db = mysql.createPool({
     database: "nemesis"
 }).promise()
 
-// Displaying all users
-export async function getUsers() {
-  const [rows] = await db.query("SELECT * FROM users")
-  return rows
-}
-
 export async function loginAuth(username, password) {
   try {
     const [rows] = await db.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password])
