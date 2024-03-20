@@ -1,30 +1,29 @@
 import FloatingInput from "../UI/FloatingInput";
-import StudentTypeSelect from "./components/StudentTypeSelect";
+import StudentTypeSelect from "./components/StudentTypeSelect"
 import GenderTypeSelect from "./components/GenderTypeSelect";
-import { useState } from "react";
+import { useRef } from "react";
 import JHSGradeSection from "./components/JHSGradeSection";
 
 const LearnerInformation = () => {
-  const [selectedType, setSelectedType] = useState('');
+  const selectedType = useRef();
 
-  const SetStudentType = (e) => {
-    let val = e.target.value
+  function SetStudentType(e) {
+    selectedType.current = e.target.value
     let jhs = document.querySelectorAll('#jhs-yrlevel')
     let shs = document.querySelectorAll('#shs-yrlevel')
-    setSelectedType(val)
-    if(selectedType === 'JHS') {
-      shs.forEach(e => {
+    if(selectedType.current === 'JHS') {
+      jhs.forEach(e => {
         e.style.display = 'block'
       });
-      jhs.forEach(e => {
+      shs.forEach(e => {
         e.style.display = 'none'
       });
     }
-    if(selectedType === 'SHS') {
-      jhs.forEach(e => {
+    if(selectedType.current === 'SHS') {
+      shs.forEach(e => {
         e.style.display = 'block'
       });
-      shs.forEach(e => {
+      jhs.forEach(e => {
         e.style.display = 'none'
       });
     }

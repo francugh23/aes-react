@@ -1,5 +1,5 @@
 import express from 'express'
-import { loginAuth, studentTypeSelect, studentYear } from './server.js'
+import { loginAuth, studentTypeSelect, getYear, getSections } from './server.js'
 import cors from 'cors'
 
 const app = express()
@@ -41,21 +41,19 @@ app.get("/student-type", async (req, res) => {
   }
 })
 
-// Student Year Oko
-app.get("/student-year", async (req, res) => {
-  const studentYearResult = await studentYear()
-  if (studentYearResult.length > 0) {
-    res.json(studentYearResult)
+// Year Oko
+app.get("/get-year", async (req, res) => {
+  const data = await getYear()
+  if (data.length > 0) {
+    res.json(data)
   }
 })
 
-// Connection Checker
-// db.connect(function(error) {
-//   if(error) {
-//     console.log("Error : " + error.message);
-//   } else {
-//     console.log("Connected");
-//     // Send a success in frontEnd
-
-//   }
-// })
+// Sections Oko
+app.get("/get-sections", async (req, res) => {
+  const selectedYear = req.body;
+  const data = await getSections(selectedYear)
+  if (data.length > 0) {
+    res.json(data)
+  }
+})

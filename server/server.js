@@ -4,7 +4,7 @@ const db = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "",
-    database: "nemesis"
+    database: "aes"
 }).promise()
 
 // Displaying all users
@@ -32,9 +32,18 @@ export async function studentTypeSelect() {
   }
 }
 
-export async function studentYear() {
+export async function getYear() {
   try {
-    const [rows] = await db.query("SELECT * FROM year")
+    const [rows] = await db.query("SELECT * FROM year");
+    return rows
+  } catch (error) {
+    throw error
+  }
+}
+
+export async function getSections(selectedYear) {
+  try {
+    const [rows] = await db.query("SELECT * FROM sections WHERE year_id = ?", [selectedYear]);
     return rows
   } catch (error) {
     throw error

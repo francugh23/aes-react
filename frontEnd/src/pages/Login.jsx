@@ -1,4 +1,4 @@
-import "../index.css"
+import "../assets/global.css"
 import Logo from "../assets/school-logo.png"
 import FloatingInput from "../components/UI/FloatingInput"
 import Button from "../components/UI/BSButton"
