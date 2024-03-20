@@ -23,18 +23,18 @@ export async function loginAuth(username, password) {
   }
 }
 
-export async function genderSelect() {
+export async function studentTypeSelect() {
   try {
-    const [rows] = await db.query("SELECT * FROM gender")
+    const [rows] = await db.query("SELECT * FROM student_type")
     return rows
   } catch (error) {
     throw error
   }
 }
 
-export async function studentTypeSelect() {
+export async function studentYear() {
   try {
-    const [rows] = await db.query("SELECT * FROM student_type")
+    const [rows] = await db.query("SELECT * FROM year")
     return rows
   } catch (error) {
     throw error

@@ -2,6 +2,7 @@ import FloatingInput from "../UI/FloatingInput";
 import StudentTypeSelect from "./components/StudentTypeSelect";
 import GenderTypeSelect from "./components/GenderTypeSelect";
 import { useState } from "react";
+import JHSGradeSection from "./components/JHSGradeSection";
 
 const LearnerInformation = () => {
   const [selectedType, setSelectedType] = useState('');
@@ -61,21 +62,9 @@ const LearnerInformation = () => {
         <div className="col-3 py-2">
           <FloatingInput idName='lrnInput' placeholder="Learner's Number Reference (LRN)" type='text' />
         </div>
-        <div className="col py-2">
-          <select name="gradeSelect" id="jhs-yrlevel" className="form-select alert border shadow-sm">
-            <option selected={true} disabled='disabled'>Grade</option>
-          </select>
-          <select name="strandSelect" id="shs-yrlevel" style={{ display: 'none' }} className="form-select alert border shadow-sm">
-            <option selected={true} disabled='disabled'>Strand</option>
-          </select>
-        </div>
-        <div className="col py-2">
-          <select name="sectionSelect" id="jhs-yrlevel" className="form-select alert border shadow-sm">
-            <option selected={true} disabled='disabled'>Section</option>
-          </select>
-          <select name="trackSelect" id="shs-yrlevel" style={{ display: 'none' }} className="form-select alert border shadow-sm">
-            <option selected={true} disabled='disabled'>Track</option>
-          </select>
+        {/* Col Grade Section */}
+        <div className="col row py-2" id="jhs-yrLevel">
+          <JHSGradeSection />
         </div>
       </div>
     </>
