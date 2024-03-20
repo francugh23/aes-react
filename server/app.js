@@ -41,6 +41,7 @@ app.get("/student-type", async (req, res) => {
   }
 })
 
+
 // Year Oko
 app.get("/get-year", async (req, res) => {
   const data = await getYear()

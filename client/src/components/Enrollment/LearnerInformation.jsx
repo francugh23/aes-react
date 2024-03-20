@@ -5,7 +5,7 @@ import { useRef } from "react";
 import JHSGradeSection from "./components/JHSGradeSection";
 
 const LearnerInformation = () => {
-  const selectedType = useRef();
+  const selectedType = useRef()
 
   function SetStudentType(e) {
     selectedType.current = e.target.value

@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import Axios from "axios";
+import axios from "axios";
 
 const GenderTypeSelect = () => {
   // Gender
   const [gender, setGender] = useState([]);
   useEffect(() => {
-    Axios.get("http://localhost:3000/gender-options")
+    axios.get("http://localhost:3000/gender-options")
       .then(res => {
         console.log(res)
         setGender(res.data)
