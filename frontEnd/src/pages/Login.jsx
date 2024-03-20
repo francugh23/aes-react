@@ -15,7 +15,7 @@ const Login = () => {
     try {
       const response = await Axios.post("http://localhost:3000/login", {
         username: username,
-        password: password,
+        password: md5(password),
       });
       console.log(response);
       if (response.data === "Failed") {
