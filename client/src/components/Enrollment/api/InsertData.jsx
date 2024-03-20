@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 
 const InsertData = (props) => {
 
-  axios.post("http://localhost:8081/insert-student-data", {
+  axios.post("http://localhost:3000/insert-student-data", {
     // Learner's Information
     idNumber: props.idNumber,
     studentType: props.studentType,
