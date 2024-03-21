@@ -5,7 +5,7 @@ const GenderTypeSelect = () => {
   // Gender
   const [gender, setGender] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3000/gender-options")
+    axios.get("http://localhost:3000/get-gender")
       .then(res => {
         console.log(res)
         setGender(res.data)
@@ -18,9 +18,9 @@ const GenderTypeSelect = () => {
     <>
       <select name="genderSelect" id="genderSelect" className="form-select fs-6 alert border shadow-sm" required={true}>
         <option disabled={true} selected={true}>Gender</option>
-        {gender.map((data, index) => {
-          return <option key={index} value={data.code}>{data.description}</option>
-        })}
+        {gender.map((value, index) => (
+          <option key={index} value={value}>{value}</option>
+        ))}
       </select>
     </>
   )

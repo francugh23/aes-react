@@ -44,6 +44,16 @@ export async function getSections(selectedYear) {
   }
 }
 
+export async function getGender() {
+  try {
+    const [rows] = await db.query("SHOW COLUMNS FROM students LIKE 'gender'");
+    const enumValues = rows[0].Type.match(/'([^']+)'/g).map(value => value.replace(/'/g, ''));
+    return enumValues;
+  } catch (error) {
+    throw error;
+  }
+}
+
 // // Fetch Student Data
 // app.get('/fetch-student-data', (req, res) => {
 //   const sql = "SELECT *, DATE(birthdate) as bdate FROM students";
