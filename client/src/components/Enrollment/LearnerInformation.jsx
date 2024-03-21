@@ -14,18 +14,42 @@ const LearnerInformation = () => {
     if(selectedType.current === 'JHS') {
       jhs.forEach(e => {
         e.style.display = 'block'
-      });
+      })
       shs.forEach(e => {
         e.style.display = 'none'
-      });
+      })
     }
     if(selectedType.current === 'SHS') {
       shs.forEach(e => {
         e.style.display = 'block'
-      });
+      })
       jhs.forEach(e => {
         e.style.display = 'none'
+      })
+    }
+  }
+
+  const selectedGender = useRef()
+  
+  function SetGender(e) {
+    selectedGender.current = e.target.value
+    let male = document.querySelectorAll(".male")
+    let female = document.querySelectorAll(".female")
+    if (selectedGender.current === "Male") {
+      male.forEach((e) => {
+        e.style.display = "block"
       });
+      female.forEach((e) => {
+        e.style.display = "none"
+      });
+    }
+    if (selectedGender.current === "Female") {
+      female.forEach((e) => {
+        e.style.display = "block"
+      });
+      male.forEach((e) => {
+        e.style.display = "none"
+      })
     }
   }
 
@@ -53,7 +77,7 @@ const LearnerInformation = () => {
       
       <div className="row">
         <div className="col-2 py-2">
-          <GenderTypeSelect />
+          <GenderTypeSelect onChange={SetGender}/>
         </div>
         <div className="col-2 py-2">
           <FloatingInput type='date' placeholder='Birthday' idName='bdate' />

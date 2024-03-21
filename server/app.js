@@ -59,19 +59,19 @@ app.get("/get-sections", async (req, res) => {
   }
 })
 
-// Gender Yohan this doesn't fckin work
-app.get("/path", async (req, res) => {
+// Gender Yohan
+app.get("/get-gender", async (req, res) => {
   const data = await getGender()
   if (data.length > 0) {
     res.json(data)
   }
 })
 
-// Gender Yohan plus thankyou github copilot
-app.get("/get-gender", async (req, res) => {
-  try {
-    const enumValues = await getGender()
-    res.render('GenderTypeSelect.jsx', { enumValues })
-  } catch (error) {
-  }
-})
+// // Gender Yohan plus github copilot
+// app.get("/get-gender", async (req, res) => {
+//   try {
+//     const enumValues = await getGender()
+//     res.render('GenderTypeSelect.jsx', { enumValues })
+//   } catch (error) {
+//   }
+// })
