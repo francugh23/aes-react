@@ -1,4 +1,4 @@
-# nemesis-react
+# Automated Enrollment System (AES)
 react.js and api js
 
 Members
