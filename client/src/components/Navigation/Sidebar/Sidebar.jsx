@@ -3,7 +3,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <nav className="bg-white align-items-center border-end position-fixed h-100" style={{width: '255px', marginTop: '69px'}}>
+      <nav className="bg-white align-items-center border-end position-fixed h-100 shadow" style={{width: '255px', marginTop: '69px'}}>
         <div className="container px-3 m-0">
           <Link rel="stylesheet" to="/nemesis/dashboard" className="btn btn-success mt-3 w-100">
             Dashboard

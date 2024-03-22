@@ -3,18 +3,19 @@ import AddressContact from "./AddressContact"
 import LearnerInformation from "./LearnerInformation"
 import EnrollmentHeader from "./components/EnrollmentHeader"
 const Enrollment = () => {
+  const EnrollStudent = () => {
+
+  }
   return (
     <div id="wrapper">
       <div className="content p-2">
-        <div className="card m-4 border-0">
+        <div className="card m-4 rounded-0 border-0 shadow">
           <div className="card-body">
             <EnrollmentHeader />
             <LearnerInformation />
             <AddressContact />
-          </div>
-          <div className="card-footer">
-            <BSButton type='submit' class='btn btn-primary me-2' value='Submit' />
-            <BSButton type='button' class='btn btn-danger me-2' value='Clear' />
+            <BSButton type='submit' class='btn btn-primary ms-2' value='Submit' />
+            <BSButton type='button' class='btn btn-danger ms-2' value='Clear' />
           </div>
         </div>
       </div>

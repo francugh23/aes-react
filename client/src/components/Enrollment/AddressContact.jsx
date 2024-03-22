@@ -1,6 +1,4 @@
 import FloatingInput from "../UI/FloatingInput";
-import ImageUploader from "../UI/ImageUploader";
-import GenderTypeSelect from "./components/GenderTypeSelect";
 
 const AddressContact = () => {
   return (
@@ -51,9 +49,6 @@ const AddressContact = () => {
               <FloatingInput idName='guardianNum' placeholder='Contact number' type='number' />
             </div>
           </div>
-        </div>
-        <div className="col">
-          <ImageUploader label='Tap to upload profile photo or' class='py-2' idName='imgUpload' />
         </div>
       </div>
     </>
