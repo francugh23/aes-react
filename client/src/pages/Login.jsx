@@ -7,15 +7,15 @@ import Axios from "axios"
 import md5 from "md5"
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [adminID, setAdminID] = useState("");
   const [password, setPassword] = useState("");
 
   const login = async (e) => {
     e.preventDefault();
     try {
       const response = await Axios.post("http://localhost:3000/login", {
-        username: username,
-        password: md5(password),
+        adminID: adminID,
+        password: password,
       });
       console.log(response);
       if (response.data === "Failed") {
@@ -42,8 +42,8 @@ const Login = () => {
                 <FloatingInput
                   type="text"
                   idName="username"
-                  placeholder="ID"
-                  onChange={(e) => setUsername(e.target.value)}
+                  placeholder="Admin ID"
+                  onChange={(e) => setAdminID(e.target.value)}
                 />
               </div>
               <div className="w-50 mb-3">

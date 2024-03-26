@@ -19,9 +19,9 @@ app.listen(3000, () => {
 
 // Login Auth Yohan
 app.post("/login", async (req, res) => {
-  const { username, password } = req.body
+  const { adminID, password } = req.body
   try {
-    const loginResult = await loginAuth(username, password)
+    const loginResult = await loginAuth(adminID, password)
     if (loginResult.length > 0) {
       res.json(loginResult)
     } else {

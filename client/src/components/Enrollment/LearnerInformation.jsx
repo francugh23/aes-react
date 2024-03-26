@@ -1,5 +1,4 @@
 import FloatingInput from "../UI/FloatingInput";
-import StudentTypeSelect from "./components/StudentTypeSelect"
 import GenderTypeSelect from "./components/GenderTypeSelect";
 import { useRef } from "react";
 import JHSGradeSection from "./components/JHSGradeSection";
@@ -61,8 +60,12 @@ const LearnerInformation = () => {
         <div className="col-2 py-2">
           <FloatingInput idName='idNumber' placeholder='ID Number' type='text' />
         </div>
-        <div className="col-3 py-2">
-          <StudentTypeSelect onChange={SetStudentType} />
+        <div className="col-2 py-2">
+          <select name="studentTypeSelect" id="studentTypeSelect" 
+            className="form-select fs-6 alert border shadow-sm">
+              <option selected value="jhs">Junior High School</option>
+              <option value="shs">Senior High School</option>
+          </select>
         </div>
         <div className="col py-2">
           <FloatingInput idName='lastName' placeholder='Last Name' type='text' />
