@@ -1,7 +1,7 @@
 
 const FloatingInput = (props) => {
   return (
-    <div className="form-floating shadow-sm">
+    <div className="form-floating shadow-sm rounded">
       <input
         type={props.type}
         className="form-control form-control-sm"

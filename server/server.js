@@ -4,12 +4,12 @@ const db = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "",
-    database: "nemesis"
+    database: "aes"
 }).promise()
 
-export async function loginAuth(username, password) {
+export async function loginAuth(adminID, password) {
   try {
-    const [rows] = await db.query("SELECT * FROM users WHERE username = ? AND password = ?", [username, password])
+    const [rows] = await db.query("SELECT * FROM users WHERE admin_id = ? AND password = ?", [adminID, password])
     return rows
   } catch (error) {
     console.error("Login authentication error:", error)
@@ -28,7 +28,7 @@ export async function studentTypeSelect() {
 
 export async function getYear() {
   try {
-    const [rows] = await db.query("SELECT * FROM year");
+    const [rows] = await db.query("SELECT * FROM year_level");
     return rows
   } catch (error) {
     throw error
@@ -53,13 +53,3 @@ export async function getGender() {
     throw error;
   }
 }
-
-// // Fetch Student Data
-// app.get('/fetch-student-data', (req, res) => {
-//   const sql = "SELECT *, DATE(birthdate) as bdate FROM students";
-
-//   db.query(sql, (err, data) => {
-//     if (err) return res.json("Server Error");
-//     return res.json(data)
-//   });
-// })
